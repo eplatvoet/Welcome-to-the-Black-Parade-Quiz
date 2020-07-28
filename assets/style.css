@@ -1,6 +1,7 @@
  *, *::before, *::after {
      box-sizing: border-box;
-     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+     font-family: 'Amatic SC', cursive;
+     font-size: 30px;
  }
  
  body {
@@ -13,6 +14,8 @@
      justify-content: center;
      align-items: center;
      color: black
+     
+
 
  }
 
@@ -51,7 +54,7 @@
  }
 
  .start-btn, .next-btn {
-     font-size: 24 px;
+     font-size: 44 px;
      padding: 10px 20px;
  }
 

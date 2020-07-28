@@ -37,39 +37,45 @@ function startQuiz() {
 // }
 
 function showQuestion() {
-    var currentQuestion = questions[questionIndex];
-    questionElement.innerText = currentQuestion.question
-    console.log(currentQuestion.question)
-    currentQuestion.answers.forEach(function (answer) {
-        var button = document.createElement("button");
-        button.innerText = answer;
-        button.classList.add("btn");
-        button.setAttribute("value", answer);
-        button.addEventListener("click", selectAnswer);
+       var currentQuestion = questions[questionIndex];
+       answerDiv.innerHTML = ""
+       questionElement.innerText = currentQuestion.question
+       console.log(currentQuestion.question)
+       currentQuestion.answers.forEach(function (answer) {
+           var button = document.createElement("button");
+           button.innerText = answer;
+           button.classList.add("btn");
+           button.setAttribute("value", answer);
+           button.addEventListener("click", selectAnswer);
+   
+           answerDiv.appendChild(button);
+   
+       });
+    }
 
-        answerDiv.appendChild(button);
-
-    });
-}
 
 // function resetState() {
 //     nextButton.classList.add("hide");
 //     while (answerDiv.firstChild) {answerDiv.removeChild(answerDiv.firstChild)};
 // }
 
-function selectAnswer() {
-    //this.value
-    console.log(this.value)
-    if (this.value === questions[questionIndex].correctAnswer) {
-        score++;
-        console.log(score);
-        questionIndex++;
-
+    function selectAnswer() {
+        //this.value
+        console.log(this.value)
+        if (this.value === questions[questionIndex].correctAnswer) {
+            score++;
+            console.log(score);
+            questionIndex++;
+            alert("Correct! Are you an emo kid or what?!")
+            showQuestion()
+        } else {
+            questionIndex++;
+            alert("Incorrect. Do you need to apply to Emo University?")
+            showQuestion()
+        }
+    
+    
     }
-
-
-}
-
 
 
 var questions = [
@@ -106,7 +112,7 @@ var questions = [
         correctAnswer: "non-believers"
     }, {
         question: "Because one day, I'll leave you a phanton, to lead you in (_____)",
-        answers: ["girl", "summer", "man", "boy"],
+        answers: ["winter", "summer", "spring", "fall"],
         correctAnswer: "summer"
     }, {
         question: "to join the (_____)",
