@@ -1,0 +1,66 @@
+ *, *::before, *::after {
+     box-sizing: border-box;
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+ }
+ 
+ body {
+     background-color: gray;
+     padding: 0;
+     margin: 0;
+     display: flex;
+     width: 100vw;
+     height: 100vh;
+     justify-content: center;
+     align-items: center;
+     color: black
+
+ }
+
+ .container {
+     width: 800px;
+     max-width: 80%;
+     background-color: black;
+     border-radius: 5px;
+     border-color: white;
+     padding: 10px;
+     color: white;
+ }
+
+ .btn-grid {
+     display: grid;
+     grid-template-columns: repeat(2, auto);
+     gap: 5px;
+     margin: 20px 0;
+ }
+
+ .btn {
+    background-color: #DADADA;
+    color: black;
+ }
+ .btn:hover {
+    background-color: maroon;
+    color:white;
+ }
+
+ .btn.correct {
+    color: red;
+ }
+
+ .btn-wrong {
+    color: gray;
+ }
+
+ .start-btn, .next-btn {
+     font-size: 24 px;
+     padding: 10px 20px;
+ }
+
+ .controls {
+     display:flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .hide{
+     display:none;
+ }
