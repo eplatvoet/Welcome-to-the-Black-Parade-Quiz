@@ -5,7 +5,11 @@
  }
  
  body {
-     background-color: gray;
+     background-color: black;
+     background-image: url("images/IMG_2698.JPG");
+     background-size: auto;
+     background-position: right bottom;
+     background-repeat: no-repeat;
      padding: 0;
      margin: 0;
      display: flex;
@@ -13,44 +17,41 @@
      height: 100vh;
      justify-content: center;
      align-items: center;
-     color: black
-     
-
-
+     color: white;
  }
 
  .container {
      width: 800px;
      max-width: 80%;
-     background-color: black;
+     background-color: white;
      border-radius: 5px;
-     border-color: white;
+     border-color: gray;
      padding: 10px;
-     color: white;
+     color: maroon;
+     font-size: 30px;
  }
-
+#timer-container{
+    padding: 10px;
+}
+.starting {
+    justify-content: center;
+    padding: 10px;
+}
  .btn-grid {
      display: grid;
      grid-template-columns: repeat(2, auto);
-     gap: 5px;
+     gap: 10px;
      margin: 20px 0;
  }
 
  .btn {
     background-color: #DADADA;
     color: black;
+    font-size: 26px;
  }
  .btn:hover {
     background-color: maroon;
     color:white;
- }
-
- .btn.correct {
-    color: red;
- }
-
- .btn-wrong {
-    color: gray;
  }
 
  .start-btn, .next-btn {
@@ -67,3 +68,4 @@
  .hide{
      display:none;
  }
+
