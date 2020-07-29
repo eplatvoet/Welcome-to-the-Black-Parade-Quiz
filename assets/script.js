@@ -32,7 +32,7 @@ var questions = [
         answers: ["non-believers", "emo kids", "angels", "fans"],
         correctAnswer: "non-believers"
     }, {
-        question: "Because one day, I'll leave you a phantom, to lead you in (_____)",
+        question: "Because one day, I'll leave you a phantom, to lead you in the (_____)",
         answers: ["winter", "summer", "spring", "fall"],
         correctAnswer: "summer"
     }, {
@@ -44,7 +44,7 @@ var questions = [
 
 // variables created for buttons, score, timer
 var startButton = document.getElementById("start-btn");
-var nextButton = document.getElementById("next-btn");
+var retryButton = document.getElementById("retry-btn");
 var startRow = document.getElementById("starting");
 var questionContainerElement = document.getElementById("question-container");
 var scoreTimer = document.getElementById("score-timer-container")
@@ -55,10 +55,6 @@ var questionIndex = 0;
 var score = 0;
 var sec = 60;
 var intervalId;
-// var time = setInterval(myTimer, 1000);
-
-
-
 
 //function to get questions to appear/end game
 function showQuestion() {
@@ -99,6 +95,8 @@ function endGame() {
     questionContainerElement.classList.add("hide");
     scoreTimer.classList.add("hide");
     finalScores.classList.remove("hide");
+    retryButton.classList.remove("hide")
+    stop()
 };
 //function on what to do when the user makes their choice
 function selectAnswer() {
@@ -123,14 +121,14 @@ function startQuiz() {
     startRow.classList.add("hide");
     questionContainerElement.classList.remove("hide");
     start();
-    // myTimer();
+    myTimer();
     showQuestion();
-
+};
     //timer inserted 
     function myTimer() {
         document.getElementById('timer').innerHTML = sec + "sec left";
         sec--;
-        if (sec == -1) {
+        if (sec <= 0) {
             stop();
             alert("Time is up. How does one not know this song?!");
         }
@@ -138,19 +136,15 @@ function startQuiz() {
     function start() {
         clearInterval(intervalId)
         intervalId = setInterval(myTimer, 1000);
-    }
+    };
     function stop() {
         clearInterval(intervalId)
-    }
-};
-
+    };
 
 // start & next button set up
 $("#start-btn").on("click", function () {
     console.log("my button works")
     startQuiz();
-
-
 
     nextButton.addEventListener("click", () => {
         currentQuestionIndex++;

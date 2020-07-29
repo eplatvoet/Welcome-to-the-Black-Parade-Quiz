@@ -5,6 +5,7 @@ technologies used:
 https://www.youtube.com/watch?v=RRKJiM9Njr8
 https://fonts.google.com
 https://www.youtube.com/watch?v=riDzcEQbX6k&feature=youtu.be
+http://www.mtv.co.uk/my-chemical-romance/news/my-chemical-romance-win-mtvs-greatest-video-of-the-century
 
 
 images:
