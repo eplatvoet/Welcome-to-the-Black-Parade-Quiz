@@ -1,42 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
-    <title>Welcome to the Black Parade Quiz </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="assets/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+    <title>Welcome to the Black Parade Lyrics Quiz</title>
 </head>
+
 <body>
     <div class="container">
-        <div id="score-timer-container"></div>
+        <div class="row">
+            <div class="col-md-1" id="score-container"></div>
+            <div class="col-md-10" id="empty space"></div>
+            <div class="col-md-1" id="timer-container">
+                Time left:<span id="timer"></span><br /><br />
+            </div>
+        </div>
         <!-- container with details of quiz that appears on the page when first loaded -->
         <div class="row starting" id="starting">
             <h2>Welcome to the Black Parade Lyric Quiz</h2>
             <div class="row starting" id="starting">
-                <p>When you are ready, press start to begin the quiz. You will have 60 seconds to fill in the missing lyric to this emo-kid anthem, "Welcome to the Black Parade" by My Chemical Romance. Every answer correct will be worth one point. Every wrong answer will deduct 5 seconds from the timer. If you don't get it right on the first go, give the song a listen & then test your skills again! See if you can get all 9 questions right, and have the most time remaining! Good luck! 
+                <p>
+                    When you are ready, press start to begin the quiz. You will have 60
+                    seconds to fill in the missing lyric to this emo-kid anthem,
+                    "Welcome to the Black Parade" by My Chemical Romance. Every answer
+                    correct will be worth one point. Every wrong answer will deduct 5
+                    seconds from the timer. If you don't get it right on the first go,
+                    give the song a listen & then test your skills again! See if you can
+                    get all 9 questions right, and have the most time remaining! Good
+                    luck!
                 </p>
             </div>
         </div>
-        Time left:<span id="timer"></span><br><br>
+
         <div id="question-container" class="hide">
             <div id="question"></div>
-            <div id="answer-buttons" class="btn-grid">
+            <div id="answer-buttons" class="btn-grid"></div>
+        </div>
+        <button id="start-btn" class="start-btn btn">Start Quiz</button>
+        <button id="next-btn" class="next-btn btn hide">Next Question</button>
+    </div>
+    <div class="ending-container hide" id="ending-container">
+        <div class="row final-page" id="final-page">
+            <div class="col-md-8">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/RRKJiM9Njr8" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="row final-scores">
+
             </div>
         </div>
-            <button id="start-btn" class="start-btn btn">Start Quiz</button>
-            <button id="next-btn" class="next-btn btn hide">Next Question</button>
-              
-    </div>
     </div>
 
-    <div class="end-quiz hide">
+<script src="assets/script.js"></script>
 
-    </div>
-    <div class="row final-scores hide" id="final-scores">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/RRKJiM9Njr8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-    </div>
-    <script src="assets/script.js"></script>
 </body>
+
 </html>

@@ -3,10 +3,12 @@ var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
 var startRow = document.getElementById("starting");
 var questionContainerElement = document.getElementById("question-container");
-var scoreTimer = document.getElementById("score-timer-container")
+var highScore = document.getElementById("score-container")
+var timerCount = document.getElementById("timer-container")
 var questionElement = document.getElementById("question");
 var answerDiv = document.getElementById("answer-buttons");
-var finalScores = document.getElementById("final-scores")
+var finalPage = document.getElementById("final-page");
+var endingElement = document.getElementById("ending-container");
 var questionIndex = 0;
 var score = 0;
 var sec = 60;
@@ -22,23 +24,8 @@ var time = setInterval(myTimer, 1000);
 //   }
 
 // start & next button set up
-startButton.addEventListener("click", startQuiz)
-nextButton.addEventListener("click", () => {
-    currentQuestionIndex++;
-    setNextQuestion()
-});
-
-
-//timer inserted 
-function myTimer() {
-    document.getElementById('timer').innerHTML = sec + "sec left";
-    sec--;
-    if (sec == -1) {
-        clearInterval(time);
-        alert("Time is up. How does one not know this song?!");
-    }
-}
-//start quiz function
+startButton.addEventListener("click", function() {
+   //start quiz function
 function startQuiz() {
     console.log("started");
     startButton.classList.add("hide");
@@ -46,7 +33,30 @@ function startQuiz() {
     questionContainerElement.classList.remove("hide");
     myTimer();
     showQuestion();
+ 
+    };
+//timer inserted 
+   function myTimer() {
+    document.getElementById('timer').innerHTML = sec + "sec left";
+    sec--;
+    if (sec === 0) {
+        stop();
+        alert("Time is up. How does one not know this song?!");
+    }
+};
+//clear interval function
+function stop() {
+    clearInterval(intervalId);
+};
 }
+nextButton.addEventListener("click", () => {
+    currentQuestionIndex++;
+    setNextQuestion()
+});
+
+
+
+
 
 
 //when game is done, show the score & link to video
@@ -65,7 +75,7 @@ function endGame() {
     }
     questionContainerElement.classList.add("hide");
     scoreTimer.classList.add("hide");
-    finalScores.classList.remove("hide");
+    endingElement.classList.remove("hide");
 }
 
 //function to get questions to appear/end game
