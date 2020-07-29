@@ -81,22 +81,22 @@ function showQuestion() {
 //when game is done, show the score & link to video
 function endGame() {
     if (score < 4) {
-        alert("Wow... I would recommend listening before attempting again!")
+        alert("Wow... You got " + score + " out of 9! I would recommend listening before attempting again!")
     }
     if (score >= 4 && score <= 6) {
-        alert("OK...maybe you should listen to the song before giving this another go!")
+        alert("OK...You got " + score + " out of 9! Maybe you should listen to the song before giving this another go!")
     }
     if (score >= 7 && score < 9) {
-        alert("Not too shabby! Enjoy the song!")
+        alert("Not too shabby! You got " + score + " out of 9! Enjoy the song!")
     }
     if (score === 9) {
-        alert("KILLJOYS! Make some noise!! Perfect score! Go sing your heart out")
+        alert("KILLJOYS! Make some noise!! Perfect score! 9/9!! Go sing your heart out!")
     }
     questionContainerElement.classList.add("hide");
     scoreTimer.classList.add("hide");
     finalScores.classList.remove("hide");
-    retryButton.classList.remove("hide")
-    stop()
+    retryButton.classList.remove("hide");
+    stop();
 };
 //function on what to do when the user makes their choice
 function selectAnswer() {
