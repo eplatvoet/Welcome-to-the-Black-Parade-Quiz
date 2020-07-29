@@ -1,9 +1,34 @@
 // variables created for buttons, score, timer
 var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
+var startRow = document.getElementById("starting");
+var questionContainerElement = document.getElementById("question-container");
+var scoreTimer = document.getElementById("score-timer-container")
+var questionElement = document.getElementById("question");
+var answerDiv = document.getElementById("answer-buttons");
+var finalScores = document.getElementById("final-scores")
+var questionIndex = 0;
 var score = 0;
 var sec = 60;
 var time = setInterval(myTimer, 1000);
+
+
+
+//   if (timer === 0){
+//     clearInterval(interval);
+//     document.getElementById('score-timer-container').innerHTML='Done';
+//     // or...
+//     window.location.href = "./highscore.html";
+//   }
+
+// start & next button set up
+startButton.addEventListener("click", startQuiz)
+nextButton.addEventListener("click", () => {
+    currentQuestionIndex++;
+    setNextQuestion()
+});
+
+
 //timer inserted 
 function myTimer() {
     document.getElementById('timer').innerHTML = sec + "sec left";
@@ -13,83 +38,76 @@ function myTimer() {
         alert("Time is up. How does one not know this song?!");
     }
 }
-// var timer = 90;
-// var interval = setInterval(function(){
-//   document.getElementById('timer').innerHTML=count;
-//   count--;
-//   if (timer === 0){
-//     clearInterval(interval);
-//     document.getElementById('score-timer-container').innerHTML='Done';
-//     // or...
-//     window.location.href = "./highscore.html";
-//   }
-// }, 1000);
-
-var questionContainerElement = document.getElementById("question-container");
-var questionElement = document.getElementById("question");
-var answerDiv = document.getElementById("answer-buttons");
-var questionIndex = 0;
-
-
-// start & next button set up
-startButton.addEventListener("click", startQuiz)
-nextButton.addEventListener("click", () => {
-    currentQuestionIndex++;
-    setNextQuestion()
-});
-
 //start quiz function
 function startQuiz() {
     console.log("started");
     startButton.classList.add("hide");
+    startRow.classList.add("hide");
     questionContainerElement.classList.remove("hide");
-    showQuestion()
+    myTimer();
+    showQuestion();
 }
 
 
-//function to get question 
+//when game is done, show the score & link to video
+function endGame() {
+    if (score < 4) {
+        alert("Wow... I would recommend listening before attempting again!")
+    }
+    if (score >= 4 && score <= 6) {
+        alert("OK...maybe you should listen to the song before giving this another go!")
+    }
+    if (score >= 7 && score < 9) {
+        alert("Not too shabby! Enjoy the song!")
+    }
+    if (score === 9) {
+        alert("KILLJOYS! Make some noise!! Perfect score! Go sing your heart out")
+    }
+    questionContainerElement.classList.add("hide");
+    scoreTimer.classList.add("hide");
+    finalScores.classList.remove("hide");
+}
+
+//function to get questions to appear/end game
 function showQuestion() {
-       var currentQuestion = questions[questionIndex];
-       answerDiv.innerHTML = ""
-       questionElement.innerText = currentQuestion.question
-       console.log(currentQuestion.question)
-       currentQuestion.answers.forEach(function (answer) {
-           var button = document.createElement("button");
-           button.innerText = answer;
-           button.classList.add("btn");
-           button.setAttribute("value", answer);
-           button.addEventListener("click", selectAnswer);
-   
-           answerDiv.appendChild(button);
-   
-       });
-    }
+    if (questionIndex < questions.length) {
+        var currentQuestion = questions[questionIndex];
+        answerDiv.innerHTML = ""
+        questionElement.innerText = currentQuestion.question
+        console.log(currentQuestion.question)
+        currentQuestion.answers.forEach(function (answer) {
+            var button = document.createElement("button");
+            button.innerText = answer;
+            button.classList.add("btn");
+            button.setAttribute("value", answer);
+            button.addEventListener("click", selectAnswer);
 
+            answerDiv.appendChild(button);
+
+        });
+    } else {
+        endGame();
+    };
+
+};
+//function on what to do when the user makes their choice
 function selectAnswer() {
-        console.log(this.value)
-        if (this.value === questions[questionIndex].correctAnswer) {
-            score++;
-            console.log(score);
-            questionIndex++;
-            alert("Correct! Are you an emo kid or what?!")
-            showQuestion()
-        } else {
-            questionIndex++;
-            alert("Incorrect. Come on friend, this is an anthem. Do you need to apply to Emo University?")
-            showQuestion()
-        }
-    
-    
+    console.log(this.value)
+    if (this.value === questions[questionIndex].correctAnswer) {
+        score++;
+        console.log(score);
+        questionIndex++;
+        alert("Correct! Are you an emo kid or what?!")
+        showQuestion()
+    } else {
+        questionIndex++;
+        sec -=5;
+        alert("Incorrect. Come on friend, this is an anthem. Do you need to apply to Emo University?")
+        showQuestion()
     }
 
-    //when game is done, show the score & link to video
-    //if score is 0-3/9: "wow... i recommend listening before attempting again!""
 
-    //if score 4-6/9 "ok...maybe you should listen to the song before giving this another go!""
-
-    //if score 7-8/9 "not too shabby! enjoy the song!"
-
-    //if 9/9 "killjoys! Make some noise!! perfect score! click play & sing your heart out"
+}
 
 
 //questions/answers array set
@@ -126,7 +144,7 @@ var questions = [
         answers: ["non-believers", "emo kids", "angels", "fans"],
         correctAnswer: "non-believers"
     }, {
-        question: "Because one day, I'll leave you a phanton, to lead you in (_____)",
+        question: "Because one day, I'll leave you a phantom, to lead you in (_____)",
         answers: ["winter", "summer", "spring", "fall"],
         correctAnswer: "summer"
     }, {
