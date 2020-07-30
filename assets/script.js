@@ -129,40 +129,44 @@ function startQuiz() {
     myTimer();
     showQuestion();
 };
-    //timer inserted 
-    function myTimer() {
-        document.getElementById('timer').innerHTML = sec + "sec left";
-        sec--;
-        if (sec <= 0) {
-            stop();
-            alert("Time is up. How does one not know this song?!");
-        }
-    };
-    function start() {
-        clearInterval(intervalId)
-        intervalId = setInterval(myTimer, 1000);
-    };
-    function stop() {
-        clearInterval(intervalId)
-    };
+//timer inserted 
+function myTimer() {
+    document.getElementById('timer').innerHTML = sec + "sec left";
+    sec--;
+    if (sec <= 0) {
+        stop();
+        alert("Time is up. How does one not know this song?!");
+        endGame();
+    }
+};
+function start() {
+    clearInterval(intervalId)
+    intervalId = setInterval(myTimer, 1000);
+};
+function stop() {
+    clearInterval(intervalId)
+};
 
 // start & retry button set up
 $("#start-btn").on("click", function () {
     console.log("my button works")
     startQuiz();
 });
- retryButton.addEventListener("click", function() {
-        questionIndex = 0;
-        questionContainerElement.classList.remove("hide");
-        finalScores.classList.add("hide");
-        retryButton.classList.add("hide");
-    });
+//retry button **BUG - need to reset timer
+retryButton.addEventListener("click", function () {
+    questionIndex = 0;
+    startQuiz();
+    start();
+    questionContainerElement.classList.remove("hide");
+    finalScores.classList.add("hide");
+    retryButton.classList.add("hide");
+});
 
-//submit form to enter high score initials, render to DOM, and add to locale storage
+//submit form to enter high score & initials, render to DOM, and add to locale storage **BUG - wont store initials into the localStorage
 var inputInitials = initials.value;
 
-submitInitials.addEventListener ("click", function() {
+submitInitials.addEventListener("click", function () {
     event.preventDefault();
-localStorage.setItem("User:", JSON.stringify(inputInitials));
-console.log("localStorage");
+    localStorage.setItem("User:", JSON.stringify(inputInitials));
+    console.log("localStorage");
 });

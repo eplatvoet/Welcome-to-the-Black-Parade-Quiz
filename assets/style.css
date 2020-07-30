@@ -1,76 +1,79 @@
- *, *::before, *::after {
-     box-sizing: border-box;
-     font-family: 'Amatic SC', cursive;
-     font-size: 30px;
- }
- 
- body {
-     background-color: black;
-     background-image: url("images/IMG_2698.JPG");
-     background-size: auto;
-     background-position: right bottom;
-     background-repeat: no-repeat;
-     padding: 0;
-     margin: 0;
-     display: flex;
-     width: 100vw;
-     height: 100vh;
-     justify-content: center;
-     align-items: center;
-     color: white;
- }
-
- .container {
-     width: 800px;
-     max-width: 80%;
-     background-color: white;
-     border-radius: 5px;
-     border-color: gray;
-     padding: 10px;
-     color: maroon;
-     font-size: 30px;
- }
-#timer-container{
-    padding: 10px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Amatic SC", cursive;
+  font-size: 30px;
+}
+/* body styling */
+body {
+  background-color: black;
+  background-image: url("images/IMG_2698.JPG");
+  background-size: auto;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+/* styling for all "pages" within this one container */
+.container {
+  width: 800px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  border-color: gray;
+  padding: 10px;
+  color: maroon;
+  font-size: 30px;
+}
+#timer-container {
+  padding: 10px;
 }
 .starting {
-    justify-content: center;
-    padding: 10px;
+  justify-content: center;
+  padding: 10px;
 }
 .final-scores {
-    justify-content: center;
-    padding: 10px;
-    font-size: 24px;
+  justify-content: center;
+  padding: 10px;
+  font-size: 24px;
 }
- .btn-grid {
-     display: grid;
-     grid-template-columns: repeat(2, auto);
-     gap: 10px;
-     margin: 20px 0;
- }
+/* button styles */
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin: 20px 0;
+}
 
- .btn {
-    background-color: #DADADA;
-    color: black;
-    font-size: 26px;
- }
- .btn:hover {
-    background-color: maroon;
-    color:white;
- }
+.btn {
+  background-color: #dadada;
+  color: black;
+  font-size: 26px;
+}
+.btn:hover {
+  background-color: maroon;
+  color: white;
+}
 
- .start-btn, .next-btn {
-     font-size: 44 px;
-     padding: 10px 20px;
- }
+.start-btn,
+.next-btn {
+  font-size: 44 px;
+  padding: 10px 20px;
+}
 
- .controls {
-     display:flex;
-     justify-content: center;
-     align-items: center;
- }
-
- .hide{
-     display:none;
- }
-
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* hidden class for many elements */
+.hide {
+  display: none;
+}
