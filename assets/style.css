@@ -37,6 +37,10 @@
     justify-content: center;
     padding: 10px;
 }
+.final-scores {
+    justify-content: center;
+    padding: 10px;
+}
  .btn-grid {
      display: grid;
      grid-template-columns: repeat(2, auto);
