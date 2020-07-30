@@ -50,7 +50,8 @@ var questionContainerElement = document.getElementById("question-container");
 var scoreTimer = document.getElementById("score-timer-container")
 var questionElement = document.getElementById("question");
 var answerDiv = document.getElementById("answer-buttons");
-var finalScores = document.getElementById("final-scores")
+var finalScores = document.getElementById("final-scores");
+var initials = document.getElementById("initials");
 var questionIndex = 0;
 var score = 0;
 var sec = 60;
@@ -145,9 +146,9 @@ function startQuiz() {
 $("#start-btn").on("click", function () {
     console.log("my button works")
     startQuiz();
-
-    nextButton.addEventListener("click", () => {
-        currentQuestionIndex++;
-        setNextQuestion()
-    });
 });
+ retryButton.addEventListener("click", function() {
+        startQuiz();
+    });
+
+//submit form to enter high score initials
