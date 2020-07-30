@@ -47,11 +47,13 @@ var startButton = document.getElementById("start-btn");
 var retryButton = document.getElementById("retry-btn");
 var startRow = document.getElementById("starting");
 var questionContainerElement = document.getElementById("question-container");
-var scoreTimer = document.getElementById("score-timer-container")
+var opening = document.getElementById("opening-container")
 var questionElement = document.getElementById("question");
 var answerDiv = document.getElementById("answer-buttons");
 var finalScores = document.getElementById("final-scores");
-var initials = document.getElementById("initials");
+var submitInitials = document.getElementById("submit-initials");
+var initials = document.getElementById("initials")
+var userInitials = document.getElementsByClassName("user-initials")
 var questionIndex = 0;
 var score = 0;
 var sec = 60;
@@ -83,20 +85,21 @@ function showQuestion() {
 function endGame() {
     if (score < 4) {
         alert("Wow... You got " + score + " out of 9! I would recommend listening before attempting again!")
-    }
+    };
     if (score >= 4 && score <= 6) {
         alert("OK...You got " + score + " out of 9! Maybe you should listen to the song before giving this another go!")
-    }
+    };
     if (score >= 7 && score < 9) {
         alert("Not too shabby! You got " + score + " out of 9! Enjoy the song!")
-    }
+    };
     if (score === 9) {
         alert("KILLJOYS! Make some noise!! Perfect score! 9/9!! Go sing your heart out!")
-    }
+    };
     questionContainerElement.classList.add("hide");
-    scoreTimer.classList.add("hide");
+    opening.classList.add("hide");
     finalScores.classList.remove("hide");
     retryButton.classList.remove("hide");
+    console.log(score);
     stop();
 };
 //function on what to do when the user makes their choice
@@ -106,8 +109,8 @@ function selectAnswer() {
         score++;
         console.log(score);
         questionIndex++;
-        alert("Correct! Are you an emo kid or what?!")
-        showQuestion()
+        alert("Correct! Are you an emo kid or what?!");
+        showQuestion();
     } else {
         questionIndex++;
         sec -= 5;
@@ -121,6 +124,7 @@ function startQuiz() {
     startButton.classList.add("hide");
     startRow.classList.add("hide");
     questionContainerElement.classList.remove("hide");
+    finalScores.classList.add("hide")
     start();
     myTimer();
     showQuestion();
@@ -142,13 +146,23 @@ function startQuiz() {
         clearInterval(intervalId)
     };
 
-// start & next button set up
+// start & retry button set up
 $("#start-btn").on("click", function () {
     console.log("my button works")
     startQuiz();
 });
  retryButton.addEventListener("click", function() {
-        startQuiz();
+        questionIndex = 0;
+        questionContainerElement.classList.remove("hide");
+        finalScores.classList.add("hide");
+        retryButton.classList.add("hide");
     });
 
-//submit form to enter high score initials
+//submit form to enter high score initials, render to DOM, and add to locale storage
+var inputInitials = initials.value;
+
+submitInitials.addEventListener ("click", function() {
+    event.preventDefault();
+localStorage.setItem("User:", JSON.stringify(inputInitials));
+console.log("localStorage");
+});

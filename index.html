@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container">
-        <div id="score-timer-container"></div>
+        <div id="opening-container"></div>
         <!-- container with details of quiz that appears on the page when first loaded -->
         <div class="row starting" id="starting">
             <h2>Welcome to the Black Parade Lyric Quiz</h2>
@@ -32,15 +32,13 @@
         </div>
             <button id="start-btn" class="start-btn btn">Start Quiz</button>
 
-    <div class="final-scores hide" id="final-scores">
+    <ul class="final-scores hide" id="final-scores">
        <p>Below is the music video for "Welcome to the Black Parade." The single for this song was released on September 12, 2006, followed up a few weeks later with this truly iconic video. This video earned the band MTV's "Greatest Video of the Century" in 2017 -- over 10 years after it was released! Sit back, relax, and enjoy a show!<br><br>
 
         <form>
             <input placeholder="Enter initials here" id="initials" />
-            <button id="submit-score">Submit Score</button>
-            <div>
-              <h4 id="response"></h4>
-            </div>
+            <button id="submit-initials">Submit Score</button>
+            <ul class="user-initials"></ul>
           </form>
 
         If you want to give the quiz another shot after giving the song a listen, press the retry button.</p>
