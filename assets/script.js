@@ -52,8 +52,8 @@ var questionElement = document.getElementById("question");
 var answerDiv = document.getElementById("answer-buttons");
 var finalScores = document.getElementById("final-scores");
 var submitInitials = document.getElementById("submit-initials");
-var initials = document.getElementById("initials")
-var userInitials = document.getElementsByClassName("user-initials")
+var initialsElement = document.getElementById("initials")
+// var userInitials = document.getElementbyId("user-initials")
 var questionIndex = 0;
 var score = 0;
 var sec = 60;
@@ -163,10 +163,37 @@ retryButton.addEventListener("click", function () {
 });
 
 //submit form to enter high score & initials, render to DOM, and add to locale storage **BUG - wont store initials into the localStorage
-var inputInitials = initials.value;
+// var inputInitials = initials.value;
+function saveScore() {
+    var initials = initialsElement.value.trim();
+    if (initials !== "") {
+        var highScore = JSON.parse(localStorage.getItem("highScore")) || []
+        var scoreObject = {
+            score: score,
+            initials: initials
+        }
+        console.log(scoreObject);
+        highScore.push(scoreObject);
+        console.log(highScore);
+        localStorage.setItem("highScore", JSON.stringify(highScore));
+    }
+}
+
 
 submitInitials.addEventListener("click", function () {
     event.preventDefault();
-    localStorage.setItem("User:", JSON.stringify(inputInitials));
-    console.log("localStorage");
+    initialsElement.value = "";
+    saveScore();
+    showScore();
 });
+
+function showScore() {
+    var highScore = JSON.parse(localStorage.getItem("highScore")) || []
+    highScore.forEach(function(score) {
+        var liTags = document.createElement("li");
+        liTags.textContent = score.initials + " - " + score.score;
+        var scoreElement = document.getElementById("user-initials");
+
+        scoreElement.appendChild(liTags);
+    })
+}
