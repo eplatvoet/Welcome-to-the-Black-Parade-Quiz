@@ -152,18 +152,18 @@ $("#start-btn").on("click", function () {
     console.log("my button works")
     startQuiz();
 });
-//retry button **BUG - need to reset timer
+
 retryButton.addEventListener("click", function () {
     questionIndex = 0;
     startQuiz();
-    start();
+    clearInterval(intervalId)
+    intervalId = setInterval(myTimer, 1000);
     questionContainerElement.classList.remove("hide");
     finalScores.classList.add("hide");
     retryButton.classList.add("hide");
 });
 
-//submit form to enter high score & initials, render to DOM, and add to locale storage **BUG - wont store initials into the localStorage
-// var inputInitials = initials.value;
+//submit form to enter high score & initials, render to DOM, and add to locale storage 
 function saveScore() {
     var initials = initialsElement.value.trim();
     if (initials !== "") {
@@ -173,7 +173,7 @@ function saveScore() {
             initials: initials
         }
         console.log(scoreObject);
-        highScore.push(scoreObject);
+        highScore.push(scoreObject);x
         console.log(highScore);
         localStorage.setItem("highScore", JSON.stringify(highScore));
     }
