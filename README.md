@@ -1,21 +1,39 @@
-# Welcome-to-the-Black-Parade-Quiz
+# Welcome-to-the-Black-Parade-Quiz  
+# ![Git Hub license](https://img.shields.io/badge/License-Unlicensed-blue.svg)
 
-For this assignment, we were instructed to create a timed quiz. Once start has been initiated, the timer needed to begin and the user would be presented with questions. If they answered a question wrong, they would lose points. The game would end with either the user answering the final question, or running out of time. When the game is over, the user needed to be able to record their initials and score to local storage.  
-We were encouraged to be creative with our quiz idea, so I decided to make a lyric quiz for one of my favorite songs/music videos (EVER), "Welcome to the Black Parade" by My Chemical Romance. To keep it short and sweet, the quiz takes the user through the first verse. Don't worry, I included the music video at the end for anybody who feels the urge to sing along after completing the quiz!
+## TABLE OF CONTENTS
+- [DESCRIPTION](#DESCRIPTION)  
+- [LICENSE](#LICENSE)  
+- [INSTALLATION](#INSTALLATION)  
+- [TECHNOLOGIES](#TECHNOLOGIES)  
+- [QUESTIONS](#QUESTIONS)  
+- [CONTRIBUTIONS](#CONTRIBUTIONS)
+- [LINKS](#LINKS)  
+- [SCREENSHOTS](#SCREENSHOTS) 
 
-## TECHNOLOGIES USED:
-https://www.youtube.com/watch?v=RRKJiM9Njr8  
-https://fonts.google.com  
-https://www.youtube.com/watch?v=riDzcEQbX6k&feature=youtu.be  
-http://www.mtv.co.uk/my-chemical-romance/news/  my-chemical-romance-win-mtvs-greatest-video-of-the-century  
-https://en.wikipedia.org/wiki/Welcome_to_the_Black_Parade  
+## DESCRIPTION
+Welcome to the "Welcome to the Black Parade" by My Chemical Romance. Test your knowledge of the intro to this iconic song by answering a quick series of questions. Don't worry, I included the music video at the end for anybody who feels the urge to sing along after completing the quiz!  
 
-## IMAGE LINKS: 
-https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRGHz1HnH5JQnlrcxh8qeTn2nB83YBW5zYpiw&usqp=CAU  
-https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F387239267940253261%2F&psig=AOvVaw3cWHvhmYY7yupBBEkpXoNm&ust=1596134677897000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCODX2KKP8-oCFQAAAAAdAAAAABAJ  
+## LICENSE
+Unlicensed
+
+## INSTALLATION
+N/A
+
+## TECHNOLOGIES  
+- HTML  
+- CSS  
+- JavaScript  
+ 
+## QUESTIONS
+My GitHub username is *eplatvoet* & my profile can be found [here](https://github.com/eplatvoet) 
+
+## CONTRIBUTIONS
+Feel free to fork the repository if any upgrades/features can be implemented. I can be reached at erin.didomenico520@gmail.com if you have any other questions about this repository.
 
 ## LINKS
-https://eplatvoet.github.io/Welcome-to-the-Black-Parade-Quiz/  
+[REPO](https://github.com/eplatvoet/Welcome-to-the-Black-Parade-Quiz)
+[DEPLOYED](https://eplatvoet.github.io/Welcome-to-the-Black-Parade-Quiz/)  
 
 ## SCREENSHOT
 ![screenshot1](assets/images/screenshot1.png)  
